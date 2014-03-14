@@ -3,6 +3,7 @@
     <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String imcode=(String)session.getAttribute("rand");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -23,11 +24,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript">
 
         var LoginAndReg;
-
+        var imgcode="";
+        
         function login() {
             var txtUserName = $("#txtUserName");
             var txtPassword = $("#txtPassword");
-
+            var VerifyCode=$("#VerifyCode");
+            code();
+           
             if (txtUserName.val() == "") {
             	
             	$.messager.alert("登陆提示","请输入用户名！","warning");
@@ -38,7 +42,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	$.messager.alert("登陆提示","请输入用户名！","warning");
                 txtPassword.focus();
                 return false;
-            } else {
+            }
+            else if (VerifyCode.val() =="") {
+            	$.messager.alert("登陆提示","请输入验证码！","warning");
+            	//VerifyCode.focus();
+                return false;
+            }
+            else if (VerifyCode.val() !=imgcode) {
+            	$.messager.alert("登陆提示","验证码错误！","warning");
+            	//VerifyCode.focus();
+                return false;
+            }
+            else {
                     var user = $("#txtUserName").val();
                     var pass = $("#txtPassword").val();
                     $.ajax({
@@ -96,11 +111,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
             return { width: widowWidth, height: windowHeight };
         }
-
-
+        
+        function flushValidateCode(obj) {  
+        	  
+        	
+            obj.src  ='ValidateCodeServlet?d='+new Date();  
+         
+        }
+  function code(){
+	    $.ajax({
+			type:'post' , 
+			url : 'GetSessionServlet' ,
+			cache:false ,
+			async: false ,		//同步请求
+			//data:{"user":user,"pass":pass},
+			dataType:'html' ,
+			success:function(result){	
+				imgcode=result;
+			}
+		});
+  }
+        
         $(function () {
-        	window.moveTo(0, 0); 
-        	window.resizeTo(getsize().width, getsize().height); 
+      
+        	window.moveTo(0, 0);    
+        	window.resizeTo(screen.width,screen.height); 
         	$("#txtUserName").focus();
             $('#btnLogin').click(
             		function () {
@@ -121,11 +156,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <DIV class=pass>
 <INPUT id=txtPassword  class=inpu maxLength=20 size=23 type=password  name=txtPassword></DIV>
 <DIV class=Code>
-<INPUT class=inpu size=10 type=text name=VerifyCode>
+<INPUT class=inpu size=10 type=text name=VerifyCode  id=VerifyCode>
 <DIV class=img_Code>
-<IMG style="CURSOR: hand" onclick=this.src+=Math.random() 
-alt=图片看不清？点击重新得到验证码 src="images/safecode.gif" width=85 
-height=30></DIV>
+<img id="validateCodeId" src="ValidateCodeServlet"   onclick="flushValidateCode(this);" title='看不清,点击刷新'  style="cursor: pointer;"width=85 
+height=30 />
+</DIV>
 </DIV><INPUT class=submit value="登陆" id="btnLogin" name="btnLogin"  type=submit> </FORM>
 <DIV class=ver>Copyright &copy;2012-2013 <A href="http://www.zychr.com/"  target=_blank>songjian V03</A> Inc. All rights reserved. 
 </DIV></DIV></DIV>

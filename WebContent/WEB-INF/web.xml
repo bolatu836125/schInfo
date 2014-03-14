@@ -45,18 +45,36 @@
     <servlet-name>loginServlet</servlet-name>
     <url-pattern>/loginServlet</url-pattern>
   </servlet-mapping>
-  
   <filter>
     <filter-name>AdminLoginFilter</filter-name>
     <filter-class>com.mysystem.servlet.AdminLoginFilter</filter-class>
-   </filter>
-   <filter-mapping>
+  </filter>
+  <filter-mapping>
     <filter-name>AdminLoginFilter</filter-name>
     <url-pattern>/web-inf/*</url-pattern>
-   </filter-mapping>
-    <filter-mapping>
+  </filter-mapping>
+  <filter-mapping>
     <filter-name>AdminLoginFilter</filter-name>
     <url-pattern>*.jsp</url-pattern>
-   </filter-mapping>
-  
+  </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ValidateCodeServlet</display-name>
+    <servlet-name>ValidateCodeServlet</servlet-name>
+    <servlet-class>com.mysystem.servlet.ValidateCodeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ValidateCodeServlet</servlet-name>
+    <url-pattern>/ValidateCodeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetSessionServlet</display-name>
+    <servlet-name>GetSessionServlet</servlet-name>
+    <servlet-class>com.mysystem.servlet.GetSessionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetSessionServlet</servlet-name>
+    <url-pattern>/GetSessionServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
