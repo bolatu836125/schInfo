@@ -50,16 +50,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									{"menuid":"22","menuname":"视频监控","icon":"icon-nav","url":"demo1.html"}
 								]
 						},{"menuid":"56","icon":"icon-sys","menuname":"部门管理",
-							"menus":[{"menuid":"31","menuname":"添加部门","icon":"icon-nav","url":"demo1.html"},
-									{"menuid":"32","menuname":"部门列表","icon":"icon-nav","url":"demo2.html"}
+							"menus":[{"menuid":"31","menuname":"部门列表","icon":"icon-nav","url":"admin/org/org.jsp"},
+									{"menuid":"32","menuname":"添加","icon":"icon-nav","url":"demo2.html"}
 								]
 						},{"menuid":"28","icon":"icon-sys","menuname":"财务管理",
 							"menus":[{"menuid":"41","menuname":"收支分类","icon":"icon-nav","url":"demo.html"},
 									{"menuid":"42","menuname":"报表统计","icon":"icon-nav","url":"demo1.html"},
 									{"menuid":"43","menuname":"添加支出","icon":"icon-nav","url":"demo2.html"}
 								]
-						},{"menuid":"39","icon":"icon-sys","menuname":"商城管理",
-							"menus":[{"menuid":"51","menuname":"商品分类","icon":"icon-nav","url":"demo.html"},
+						},{"menuid":"39","icon":"icon-sys","menuname":"上传管理",
+							"menus":[{"menuid":"51","menuname":"上传控件","icon":"icon-nav","url":"admin/upload/index.jsp"},
 									{"menuid":"52","menuname":"商品列表","icon":"icon-nav","url":"demo1.html"},
 									{"menuid":"53","menuname":"商品订单","icon":"icon-nav","url":"demo2.html"}
 								]

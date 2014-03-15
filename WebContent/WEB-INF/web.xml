@@ -77,4 +77,18 @@
     <servlet-name>GetSessionServlet</servlet-name>
     <url-pattern>/GetSessionServlet</url-pattern>
   </servlet-mapping>
+
+    <servlet>
+    <servlet-name>Uploader</servlet-name>
+    <servlet-class>com.mysystem.servlet.UploaderServlet</servlet-class>
+    <init-param>
+      <param-name>uploadPath</param-name>
+      <param-value>/WEB-INF/upload</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Uploader</servlet-name>
+    <url-pattern>/uploader</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

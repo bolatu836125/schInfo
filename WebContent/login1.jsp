@@ -149,7 +149,7 @@ String imcode=(String)session.getAttribute("rand");
 <DIV id=login>
 <DIV class=loginbox>
 <DIV class=loginlogo>
-<DIV class=inc><A href="http://www.zychr.com/" target=_blank>ZYCH V03</A></DIV></DIV>
+<DIV class=inc><A href="http://blog.csdn.net/songjian1314" target=_blank>SJ V01</A></DIV></DIV>
 <FORM method=post name=add action=?login=ok>
 <DIV class=name>
 <INPUT id=txtUserName class=inpu maxLength=20 size=23 type=text   name=txtUserName></DIV>
@@ -162,7 +162,7 @@ String imcode=(String)session.getAttribute("rand");
 height=30 />
 </DIV>
 </DIV><INPUT class=submit value="登陆" id="btnLogin" name="btnLogin"  type=submit> </FORM>
-<DIV class=ver>Copyright &copy;2012-2013 <A href="http://www.zychr.com/"  target=_blank>songjian V03</A> Inc. All rights reserved. 
+<DIV class=ver>Copyright &copy;2014-XXXX <A href="http://blog.csdn.net/songjian1314"  target=_blank>SJ V01</A> Inc. All rights reserved. 
 </DIV></DIV></DIV>
 </body>
 </html>

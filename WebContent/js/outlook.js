@@ -49,7 +49,7 @@ function InitLeftMenu() {
 		var url = $(this).attr("rel");
 		var menuid = $(this).attr("ref");
 		var icon = getIcon(menuid,icon);
-
+        alert(menuid);
 		addTab(tabTitle,url,icon);
 		$('.easyui-accordion li div').removeClass("selected");
 		$(this).parent().addClass("selected");
